@@ -1,12 +1,19 @@
 package com.example.giphydetails.repositories;
 
+import android.text.Editable;
+import android.util.Log;
+
+import com.example.giphydetails.models.GiphyResponse;
 import com.example.giphydetails.retrofit.GiphyService;
 import com.example.giphydetails.retrofit.RetrofitInstance;
+import com.example.giphydetails.util.Constants;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class Repository {
 
@@ -24,10 +31,12 @@ public class Repository {
         return RepositoryHolder.INSTANCE;
     }
 
-    public Call<List<String>> getGiphys(String search) {
+    public Call<GiphyResponse> getGiphys(Editable search) {
+        Log.d(TAG, "getGiphys: Search = " + search);
         return retrofit.create(GiphyService.class)
                 .getGiphys(
-                        String.valueOf(search)
+                        search,
+                        Constants.API_KEY
                 );
     }
 }

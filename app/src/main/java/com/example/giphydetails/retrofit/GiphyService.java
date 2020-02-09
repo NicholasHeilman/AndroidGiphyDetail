@@ -1,19 +1,19 @@
 package com.example.giphydetails.retrofit;
 
-import java.util.List;
+import android.text.Editable;
 
+import com.example.giphydetails.models.GiphyResponse;
+import com.example.giphydetails.util.Constants;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-
 public interface GiphyService {
 
-     String GIF_PATH = "/v1/gifs/search";
-
-        @GET( GIF_PATH)
-        Call<List<String>> getGiphys(
-                @Query("Search") String search
+        @GET(Constants.GIF_PATH)
+        Call<GiphyResponse> getGiphys(
+                @Query("q") Editable search,
+                @Query("api_key") String API_KEY
 
         );
     }

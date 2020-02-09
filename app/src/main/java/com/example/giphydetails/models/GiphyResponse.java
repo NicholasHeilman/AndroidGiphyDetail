@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 
-public class Response{
+public class GiphyResponse {
 
 	@SerializedName("pagination")
 	private Pagination pagination;
@@ -43,7 +43,7 @@ public class Response{
 	@Override
  	public String toString(){
 		return 
-			"Response{" + 
+			"GiphyResponse{" +
 			"pagination = '" + pagination + '\'' + 
 			",data = '" + data + '\'' + 
 			",meta = '" + meta + '\'' + 
