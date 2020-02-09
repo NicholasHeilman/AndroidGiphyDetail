@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_main">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/gifListFragment">
 
+    <fragment
+        android:id="@+id/gifListFragment"
+        android:name="com.example.giphydetails.GifListFragment"
+        android:label="fragment_gif_list"
+        tools:layout="@layout/fragment_gif_list" >
+        <action
+            android:id="@+id/action_gifListFragment_to_gifFullFragment"
+            app:destination="@id/gifFullFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gifFullFragment"
+        android:name="com.example.giphydetails.GifFullFragment"
+        android:label="fragment_gif_full"
+        tools:layout="@layout/fragment_gif_full" />
 </navigation>
