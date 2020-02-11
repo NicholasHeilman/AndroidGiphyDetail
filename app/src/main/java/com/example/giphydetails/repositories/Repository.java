@@ -31,12 +31,13 @@ public class Repository {
         return RepositoryHolder.INSTANCE;
     }
 
-    public Call<GiphyResponse> getGiphys(Editable search) {
-        Log.d(TAG, "getGiphys: Search = " + search);
+    public Call<GiphyResponse> getGiphys(Editable search, int offset) {
+//        Log.d(TAG, "getGiphys: Search = " + search);
         return retrofit.create(GiphyService.class)
                 .getGiphys(
                         search,
-                        Constants.API_KEY
+                        Constants.API_KEY,
+                        offset
                 );
     }
 }

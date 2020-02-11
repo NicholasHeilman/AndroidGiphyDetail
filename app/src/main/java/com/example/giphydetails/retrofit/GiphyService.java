@@ -13,7 +13,8 @@ public interface GiphyService {
         @GET(Constants.GIF_PATH)
         Call<GiphyResponse> getGiphys(
                 @Query("q") Editable search,
-                @Query("api_key") String API_KEY
+                @Query("api_key") String API_KEY,
+                @Query("offset") int offset
 
         );
     }

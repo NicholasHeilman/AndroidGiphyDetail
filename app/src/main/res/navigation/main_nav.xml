@@ -16,7 +16,16 @@
     </fragment>
     <fragment
         android:id="@+id/gifFullFragment"
-        android:name="com.example.giphydetails.GifFullFragment"
+        android:name="com.example.giphydetails.GifItemFragment"
         android:label="fragment_gif_full"
-        tools:layout="@layout/fragment_gif_full" />
+        tools:layout="@layout/fragment_gif_item" >
+        <action
+            android:id="@+id/action_gifFullFragment_to_gifFullScreenFragment"
+            app:destination="@id/gifFullScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gifFullScreenFragment"
+        android:name="com.example.giphydetails.GifFullScreenFragment"
+        android:label="fragment_gif_full_screen"
+        tools:layout="@layout/fragment_gif_full_screen" />
 </navigation>

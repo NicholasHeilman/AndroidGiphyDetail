@@ -11,10 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.giphydetails.R;
-import com.example.giphydetails.models.GiphyResponse;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
@@ -22,6 +20,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class GifAdaptor extends RecyclerView.Adapter<GifAdaptor.GiphyViewHolder> {
 
     private List<String> gifList;
+    public int offset;
 
     public GifAdaptor(){
         gifList = new ArrayList<>();
@@ -31,12 +30,13 @@ public class GifAdaptor extends RecyclerView.Adapter<GifAdaptor.GiphyViewHolder>
     @NonNull
     @Override
     public GiphyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_gif_full, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_gif_item, parent, false);
         return new GiphyViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull GiphyViewHolder holder, int position) {
+
         String url = gifList.get(position);
 
         Glide.with(holder.fullGif.getContext())
@@ -59,6 +59,7 @@ public class GifAdaptor extends RecyclerView.Adapter<GifAdaptor.GiphyViewHolder>
 
     class GiphyViewHolder extends RecyclerView.ViewHolder {
         private ImageView fullGif;
+
 
         GiphyViewHolder(@NonNull View itemView) {
             super(itemView);
